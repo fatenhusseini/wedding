@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff8fb">
+<title>Ahmed & Faten — Wedding Invitation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#d99bb2;--rose:#a96e86;--ink:#4c3a42;--pale:#fff8fb;--line:#ecd5df}
+*{box-sizing:border-box}body{margin:0;background:var(--pale);color:var(--ink);font-family:Montserrat,Arial,sans-serif}
+.hero{min-height:100svh;display:grid;place-items:center;padding:28px 18px;background:radial-gradient(circle at 10% 12%,#f6e3eb 0,transparent 28%),radial-gradient(circle at 90% 90%,#f2dce5 0,transparent 30%),#fffafd;overflow:hidden}
+.wrap{width:min(100%,470px);text-align:center}
+.topline{font-size:10px;letter-spacing:.32em;color:var(--rose);text-transform:uppercase;margin-bottom:26px}
+.envelope{position:relative;margin:0 auto 26px;width:min(82vw,330px);height:218px;cursor:pointer;filter:drop-shadow(0 15px 22px #8d53631c);transition:.35s}
+.env-back{position:absolute;inset:0;background:#f2d9e3;border:1px solid #e6c3d1;border-radius:5px}
+.env-front{position:absolute;inset:0;background:linear-gradient(145deg,#fff,#f8e9ef);clip-path:polygon(0 100%,0 0,50% 62%,100% 0,100% 100%);border-radius:5px}
+.flap{position:absolute;inset:0;background:#f7e4eb;clip-path:polygon(0 0,100% 0,50% 62%);transform-origin:top;transition:transform .7s;z-index:2}
+.seal{position:absolute;z-index:3;left:50%;top:53%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:#d79ab1;color:white;display:grid;place-items:center;font:25px 'Great Vibes';box-shadow:0 2px 8px #a96e8640}
+.envelope.open .flap{transform:rotateX(180deg)}.envelope.open{transform:translateY(8px)}
+.hint{font-size:10px;letter-spacing:.18em;color:#9b7887;text-transform:uppercase;margin-bottom:30px}
+.invite{background:#fff;border:1px solid var(--line);outline:1px solid var(--line);outline-offset:6px;padding:42px 25px 38px;box-shadow:0 16px 45px #9e647a12;display:none;animation:appear .8s ease}
+.invite.show{display:block}@keyframes appear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.small{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--rose)}
+h1{font:clamp(54px,13vw,72px) 'Great Vibes';font-weight:400;color:var(--rose);margin:18px 0 6px}
+.amp{font:italic 22px 'DM Serif Display';color:#d7a1b5}
+.subtitle{font:15px 'DM Serif Display';letter-spacing:.08em;margin:15px 0 24px}
+.rule{height:1px;width:65px;background:#e7c6d3;margin:20px auto}
+.date{font:22px 'DM Serif Display';color:var(--rose);margin:8px 0}.year{font-size:11px;letter-spacing:.28em}
+.note{font-size:12px;line-height:1.9;margin:20px auto;max-width:310px}
+.count{display:flex;justify-content:center;gap:9px;margin:24px 0}.unit{min-width:57px;padding:10px 5px;background:#fff8fb;border:1px solid #f0dce4}.unit b{display:block;font:22px 'DM Serif Display';color:var(--rose)}.unit span{font-size:8px;letter-spacing:.12em;text-transform:uppercase}
+.actions{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:24px}.btn{border:1px solid var(--pink);padding:12px 16px;color:var(--rose);background:white;text-decoration:none;font-size:9px;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}.btn.primary{background:var(--pink);color:white}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:24px}.pic{aspect-ratio:1;background:#f9edf2;border:1px solid var(--line);display:grid;place-items:center;overflow:hidden;font-size:10px;color:#a97b8e}.pic img{width:100%;height:100%;object-fit:cover}
+footer{font:28px 'Great Vibes';color:var(--rose);margin-top:30px}
+.music{position:fixed;right:17px;bottom:17px;border:1px solid var(--pink);background:#fff;border-radius:50%;width:47px;height:47px;color:var(--rose);font-size:19px;box-shadow:0 4px 16px #8d53631a;cursor:pointer}
+@media(max-width:390px){.invite{padding:34px 17px}.unit{min-width:51px}.count{gap:5px}}
+</style></head>
+<body>
+<main class="hero">
+<div class="wrap">
+<div class="topline">A little invitation, a lifetime of love</div>
+<div class="envelope" id="envelope" role="button" tabindex="0" aria-label="Open invitation">
+<div class="env-back"></div><div class="flap"></div><div class="env-front"></div><div class="seal">A & F</div>
+</div>
+<div class="hint" id="hint">Tap the envelope to open your invitation</div>
+<article class="invite" id="invite">
+<div class="small">Together with their families</div>
+<h1>Ahmed <span class="amp">&</span> Faten</h1>
+<div class="subtitle">REQUEST THE PLEASURE OF YOUR COMPANY</div>
+<div class="rule"></div>
+<div class="small">TO CELEBRATE THEIR WEDDING</div>
+<div class="date">20 December</div><div class="year">2026</div>
+<p class="note">With joy in our hearts, we invite you to share a beautiful beginning with us. Your presence will make our day even more special.</p>
+<div class="rule"></div>
+<div class="small">COUNTING DOWN TO FOREVER</div>
+<div class="count"><div class="unit"><b id="days">--</b><span>Days</span></div><div class="unit"><b id="hours">--</b><span>Hours</span></div><div class="unit"><b id="minutes">--</b><span>Minutes</span></div><div class="unit"><b id="seconds">--</b><span>Seconds</span></div></div>
+<div class="small">OUR MEMORIES</div>
+<div class="gallery" id="gallery"><div class="pic">Photo 1</div><div class="pic">Photo 2</div><div class="pic">Photo 3</div></div>
+<div class="actions"><label class="btn" for="photos">Add photos</label><a class="btn primary" href="https://maps.google.com" target="_blank" rel="noopener">Wedding location</a></div>
+<input id="photos" type="file" accept="image/*" multiple hidden>
+<footer>With love, Ahmed & Faten</footer>
+</article>
+</div></main>
+<button class="music" id="music" aria-label="Play music">♫</button><audio id="audio" loop src="music.mp3"></audio>
+<script>
+const envelope=document.getElementById('envelope'),invite=document.getElementById('invite'),hint=document.getElementById('hint');
+async function openInvite(){
+ envelope.classList.add('open');hint.textContent='Your invitation';
+ setTimeout(()=>invite.classList.add('show'),350);
+ const a=document.getElementById('audio'),b=document.getElementById('music');
+ try{await a.play();b.textContent='Ⅱ'}catch(e){hint.textContent='Tap the music button to play the song';}
+}
+envelope.addEventListener('click',openInvite);envelope.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openInvite()}});
+const wedding=new Date('2026-12-20T19:00:00');
+function tick(){let d=Math.max(0,wedding-Date.now());let v={days:Math.floor(d/86400000),hours:Math.floor(d/3600000)%24,minutes:Math.floor(d/60000)%60,seconds:Math.floor(d/1000)%60};for(let k in v)document.getElementById(k).textContent=String(v[k]).padStart(2,'0')}
+tick();setInterval(tick,1000);
+document.getElementById('music').addEventListener('click',async()=>{let a=document.getElementById('audio'),b=document.getElementById('music');if(a.paused){try{await a.play();b.textContent='Ⅱ'}catch(e){alert('Add your music file as music.mp3 beside index.html.')}}else{a.pause();b.textContent='♫'}});
+document.getElementById('photos').addEventListener('change',e=>{let g=document.getElementById('gallery');g.innerHTML='';[...e.target.files].slice(0,6).forEach(f=>{let box=document.createElement('div');box.className='pic';let im=document.createElement('img');im.src=URL.createObjectURL(f);box.appendChild(im);g.appendChild(box)})});
+</script></body></html>
